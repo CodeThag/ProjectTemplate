@@ -1,0 +1,26 @@
+using System.Reflection;
+using Application.Common.Behaviours;
+using FluentValidation;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace Application.Common.Extensions;
+
+public static class ApplicationServicesExtension
+{
+    public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+    {
+
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        services.AddMediatR(Assembly.GetExecutingAssembly());
+        //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
+        //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehaviour<,>));
+        //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+        //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
+        // Can be removed if logging becomes too much
+        //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<>));
+
+        return services;
+    }
+}
