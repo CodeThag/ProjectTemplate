@@ -2,7 +2,7 @@ using Application.Common.Mappings;
 using Domain.Entities;
 using Domain.ValueObjects;
 
-namespace Application.ToDos;
+namespace Application.Common.Dtos;
 
 public class TodoListDto : IMapFrom<TodoList>
 {
